@@ -1,12 +1,12 @@
 {
   "required": true,
   "compatibilityLevel": "JAVA_21",
-  "package": "net.steakboi.tutorialmod.mixin",
-  "refmap": "tutorialmod.mixin-refmap.json",
+  "package": "net.steakboi.hidenametags.mixin",
+  "refmap": "hidenametags.mixin-refmap.json",
   "injectors": {
     "defaultRequire": 1
   },
   "mixins": [
-    "TutorialModMixin"
+    "HideNameTagsMixin"
   ]
 }
