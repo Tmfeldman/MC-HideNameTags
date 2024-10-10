@@ -1,19 +1,18 @@
 package net.steakboi.hidenametags.mixin;
 
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
-
+import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.steakboi.hidenametags.HideNameTags;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(LivingEntity.class)
+@Mixin(EntityRenderer.class)
 public abstract class HideNameTagsMixin {
-    @Inject(method = "getJumpPower(F)F", at = @At("RETURN"), cancellable = true)
-    protected void MultiplyJumpPower(CallbackInfoReturnable<Float> power) {
-        if ((LivingEntity)(Object)this instanceof Player){
-            power.setReturnValue(power.getReturnValueF()*3);
+    @Inject(method = {"renderNameTag"}, at = @At("HEAD"), cancellable = true)
+    protected void HideNameTags(CallbackInfo ci) {
+        if (HideNameTags.hideNameTags) {
+            ci.cancel();
         }
     }
 }
