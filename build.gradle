@@ -4,6 +4,7 @@ plugins {
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '[6.0.24,6.2)'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
+    id 'org.spongepowered.mixin' version '0.7.+'
 }
 
 version = mod_version
@@ -142,9 +143,18 @@ dependencies {
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     
     // Hack fix for now, force jopt-simple to be exactly 5.0.4 because Mojang ships that version, but some transitive dependencies request 6.0+ 
     implementation('net.sf.jopt-simple:jopt-simple:5.0.4') { version { strictly '5.0.4' } }
+}
+
+mixin {
+    // MixinGradle Settings
+    add sourceSets.main, 'mixins.tutorialmod.refmap.json'
+    config 'mixins.tutorialmod.json'
+    debug.verbose = true
+    debug.export = true
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
@@ -175,7 +185,8 @@ tasks.named('jar', Jar).configure {
             'Specification-Version'   : '1', // We are version 1 of ourselves
             'Implementation-Title'    : project.name,
             'Implementation-Version'  : project.jar.archiveVersion,
-            'Implementation-Vendor'   : mod_authors
+            'Implementation-Vendor'   : mod_authors,
+            'MixinConfigs' : "mixins.${mod_id}.json"
         ])
     }
 }
