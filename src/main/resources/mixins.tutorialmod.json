@@ -1,7 +1,7 @@
 {
   "required": true,
   "compatibilityLevel": "JAVA_21",
-  "package": "net.kaupenjoe.tutorialmod.mixin",
+  "package": "net.steakboi.tutorialmod.mixin",
   "refmap": "tutorialmod.mixin-refmap.json",
   "injectors": {
     "defaultRequire": 1
