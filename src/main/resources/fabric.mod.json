@@ -1,32 +1,32 @@
 {
 	"schemaVersion": 1,
-	"id": "tutorialmod",
+	"id": "hidenametags",
 	"version": "${version}",
-	"name": "Tutorial Mod",
-	"description": "This is an Tutorial Mod",
+	"name": "Hide Name Tags",
+	"description": "Hide Name Tags",
 	"authors": [
-		"Me!"
+		"SteakBoi"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "MIT",
-	"icon": "assets/tutorialmod/icon.png",
+	"icon": "assets/hidenametags/hidenametags-icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.steakboi.tutorialmod.TutorialMod"
+			"net.steakboi.hidenametags.HideNameTags"
 		],
 		"fabric-datagen": [
-			"net.steakboi.tutorialmod.TutorialModDataGenerator"
+			"net.steakboi.hidenametags.HideNameTagsDataGenerator"
 		],
 		"client": [
-			"net.steakboi.tutorialmod.TutorialModClient"
+			"net.steakboi.hidenametags.HideNameTagsClient"
 		]
 	},
 	"mixins": [
-		"tutorialmod.mixins.json"
+		"hidenametags.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.16.7",

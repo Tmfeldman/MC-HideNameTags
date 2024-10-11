@@ -1,9 +1,9 @@
 {
 	"required": true,
-	"package": "net.steakboi.tutorialmod.mixin",
+	"package": "net.steakboi.hidenametags.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ExampleMixin"
+		"HideNameTagsMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
